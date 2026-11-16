@@ -1,0 +1,20 @@
+# Netlify settings. No build step: the site is served straight from this folder.
+[build]
+  publish = "."
+
+# Security headers for every page
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # gc.zgo.at and goatcounter.com are allowed so GoatCounter works once enabled
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' data: https://*.goatcounter.com; connect-src 'self' https://*.goatcounter.com; font-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'"
+
+# Long cache for fonts and images (rename a file if you replace it)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

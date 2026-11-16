@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Source photos and reference screenshots (never commit)
+Portfolio Pics/
+ref-*
+photo-original.*
+
+# Netlify local folder
+.netlify/
+
+# Editor and tooling
+.vscode/
+.idea/
+node_modules/
+*.log
+.env
+.env.*
